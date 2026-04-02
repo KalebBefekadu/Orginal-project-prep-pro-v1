@@ -389,7 +389,8 @@
     /* ── LIFECYCLE ── */
     #lifecycle { padding:140px 80px; max-width:1400px; margin:0 auto; }
     .section-header { text-align:center; }
-    .section-h2 { font-family:var(--f-d); font-size:clamp(2.2rem,4.5vw,4.4rem); font-weight:300; line-height:1.1; max-width:660px; margin:0 auto 90px; text-align:center; color:var(--ink); }
+    .section-h2 { font-family:var(--f-d); font-size:clamp(2.2rem,4.5vw,4.4rem); font-weight:300; line-height:1.1; max-width:660px; margin:0 auto 18px; text-align:center; color:var(--ink); }
+    .section-sub { font-size:0.82rem; color:var(--muted); text-align:center; margin:0 auto 72px; letter-spacing:0.04em; }
     .section-h2 em { font-style:italic; color:var(--gold); }
     .lc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
     .lc-card-cta { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; background:var(--surface); padding:44px 36px; }
@@ -932,7 +933,8 @@
 <section id="lifecycle">
   <div class="section-header">
     <span class="section-eyebrow">The Full Lifecycle Engine</span>
-    <h2 class="section-h2">From first bid to final archive —<br><em>every stage owned.</em></h2>
+    <h2 class="section-h2">From first walkthrough to final close —<br><em>the platform that runs the whole deal.</em></h2>
+    <p class="section-sub">Nothing re-entered. Nothing missed. Every stage connected.</p>
   </div>
   <div class="lc-grid">
 
@@ -943,12 +945,11 @@
       </div>
       <h3 class="card-title">Acquisition</h3>
       <span class="card-subtitle">&amp; Closing</span>
-      <p class="card-p">AI underwrites deals in seconds by pulling public data and surfacing the numbers that matter. Field intelligence centralizes BIM scans, 2D/3D walkthroughs, and room-by-room data. The closing engine ensures nothing gets overlooked.</p>
+      <p class="card-p">Know if the deal works before you make the offer.</p>
       <ul class="card-features">
-        <li>AI deal underwriting with public data analysis</li>
-        <li>2D / 3D / room-by-room field intelligence</li>
-        <li>Closing checklist with industry guidance</li>
-        <li>Asset secured gate — unlocks next stage</li>
+        <li>AI deal underwriting — ARV, renovation cost, holding cost, projected margin</li>
+        <li>Field intelligence: 2D / 3D walkthroughs + room-by-room breakdown by trade</li>
+        <li>Closing checklist with plain-language industry guidance</li>
       </ul>
     </div>
 
@@ -958,13 +959,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="1.5"/></svg>
       </div>
       <h3 class="card-title">Design</h3>
-      <span class="card-subtitle">AI Prototyping</span>
-      <p class="card-p">The AI design hub uses field intelligence — exact dimensions, photos, materials — to generate highly accurate design concepts. Create multiple named concepts, compare ROI by sub-trade, and lock your favorite into a full Scope of Work.</p>
+      <span class="card-subtitle">&amp; AI Prototyping</span>
+      <p class="card-p">See the finished property before you hire a single contractor.</p>
       <ul class="card-features">
-        <li>AI image generation with full property context</li>
-        <li>Named concepts: budget flip, premium hold, mid-range</li>
-        <li>Theme selector: countertops, flooring, paint, finishes</li>
-        <li>SOW generator + design lock &amp; send</li>
+        <li>AI image generation using your exact room dimensions and photos</li>
+        <li>Multiple named concepts — compare by material cost, labor, and projected ROI</li>
+        <li>Winning design converts automatically into a contractor-ready Scope of Work</li>
       </ul>
     </div>
 
@@ -974,13 +974,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="4" x2="8" y2="10"/><line x1="12" y1="14" x2="18" y2="14"/><line x1="12" y1="17" x2="16" y2="17"/></svg>
       </div>
       <h3 class="card-title">Permit</h3>
-      <span class="card-subtitle">Guided Navigation</span>
-      <p class="card-p">Navigate city hall without the confusion — or hand it off entirely. An AI trained on your specific municipality converts local regulations into plain language and connects you directly to permit experts who know your city.</p>
+      <span class="card-subtitle">&amp; Guided Navigation</span>
+      <p class="card-p">Navigate city hall without the confusion or hand it off entirely.</p>
       <ul class="card-features">
-        <li>AI assistant trained on local municipality rules</li>
-        <li>Local rules in plain language by jurisdiction</li>
-        <li>Connect to local permit wizard experts</li>
-        <li>Full filing service — coming soon</li>
+        <li>AI assistant trained on your specific municipality — not generic advice</li>
+        <li>Local rules translated into plain language by jurisdiction</li>
+        <li>Direct connection to local permit experts</li>
       </ul>
     </div>
 
@@ -989,14 +988,13 @@
       <div class="card-svg-wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><rect x="3" y="4" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="16" width="18" height="4"/><line x1="7" y1="4" x2="7" y2="20"/></svg>
       </div>
-      <h3 class="card-title">Pre-Construction</h3>
-      <span class="card-subtitle">Bid &amp; Contract</span>
-      <p class="card-p">Magic link bidding sends detailed SOWs to any sub's phone or email — no account needed. Five tiers of due diligence protect every contract. Compare bids, auto-generate the contract, get signatures, and track compliance — all in one flow.</p>
+      <h3 class="card-title">Bid &amp; Contract</h3>
+      <span class="card-subtitle">Pre-Construction</span>
+      <p class="card-p">Bid it, contract it, sign it in one unbroken flow.</p>
       <ul class="card-features">
-        <li>Magic link bidding — subs submit without an account</li>
-        <li>5-tier due diligence: ID to full financial check</li>
-        <li>Automated contract generation + e-signature</li>
-        <li>Lender SOW, schedule builder, Lock &amp; NTP</li>
+        <li>Magic link bidding — subs submit without creating an account</li>
+        <li>5-tier due diligence: ID verification to full financial background check</li>
+        <li>Auto-generated contract + e-signature, pre-filled from the winning bid</li>
       </ul>
     </div>
 
@@ -1006,13 +1004,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><rect x="3" y="16" width="18" height="5" rx="0.5"/><rect x="5" y="10" width="14" height="6" rx="0.5"/><rect x="7" y="4" width="10" height="6" rx="0.5"/><line x1="12" y1="2" x2="12" y2="4"/></svg>
       </div>
       <h3 class="card-title">Construction</h3>
-      <span class="card-subtitle">Execution</span>
-      <p class="card-p">Real-time dashboard tracks budget versus actuals, timeline versus live progress, and all accounting data. Change orders require detailed photos and descriptions before approval. Integrates with QuickBooks. Live camera option available.</p>
+      <span class="card-subtitle">&amp; Execution</span>
+      <p class="card-p">Real-time visibility into budget, progress, and every dollar spent.</p>
       <ul class="card-features">
-        <li>Real-time budget vs. actuals + custom dashboards</li>
-        <li>Change order approval with photo documentation</li>
-        <li>Daily site logs and field execution tracking</li>
-        <li>QuickBooks integration + live camera option</li>
+        <li>Live budget vs. actual updated continuously — no surprises</li>
+        <li>Change orders require photo documentation before any budget impact</li>
+        <li>QuickBooks integration + daily site logs + live camera option</li>
       </ul>
     </div>
 
@@ -1022,13 +1019,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
       <h3 class="card-title">Sale</h3>
-      <span class="card-subtitle">Disposition</span>
-      <p class="card-p">The AI knows every detail of your property. Generate MLS copy in seconds with luxury, family, or investor framing. Deliver a Buyer Confidence Dossier and agent handoff package that no other seller in the market can produce.</p>
+      <span class="card-subtitle">&amp; Disposition</span>
+      <p class="card-p">Close faster. Command a higher price. Hand off cleanly.</p>
       <ul class="card-features">
-        <li>AI MLS description with custom tone options</li>
-        <li>Buyer dossier: permits, warranties, construction proof</li>
-        <li>Marketing assets: renderings, before/after, time-lapse</li>
-        <li>Escrow tracker with holding cost impact</li>
+        <li>Buyer Confidence Dossier: permits, warranties, materials, contractor credentials</li>
+        <li>AI MLS description generator &amp; AI stager</li>
+        <li>Agent handoff link: floor plans, verified sq. footage, full dossier in one link</li>
       </ul>
     </div>
 
@@ -1038,13 +1034,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       </div>
       <h3 class="card-title">Post-Sale</h3>
-      <span class="card-subtitle">Archive &amp; Learn</span>
-      <p class="card-p">When the project closes, a financial post-mortem compares every projected number to every actual — by stage, by trade, by line item. Cost variances feed back into your underwriting model automatically. Every deal makes the next one more profitable.</p>
+      <span class="card-subtitle">&amp; Archive</span>
+      <p class="card-p">Close the deal. Make the next one more profitable.</p>
       <ul class="card-features">
-        <li>Automated investor financial report</li>
-        <li>Projected vs. actual by stage and trade</li>
-        <li>Cost variances update your underwriting model</li>
-        <li>Full project archive: permits, warranties, credentials</li>
+        <li>Automated investor financial report — projected vs. actual by stage and trade</li>
+        <li>Pricing calibration: every variance feeds back into future underwriting</li>
+        <li>Project archive: all data synced, version-controlled, and searchable</li>
       </ul>
     </div>
 
