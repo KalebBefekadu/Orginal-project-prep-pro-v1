@@ -832,6 +832,10 @@
         <div class="dot-line"></div>
       </div>
       <div class="dot-wrap">
+        <div class="dot" id="dot-25"></div>
+        <div class="dot-line"></div>
+      </div>
+      <div class="dot-wrap">
         <div class="dot" id="dot-1"></div>
         <div class="dot-line"></div>
       </div>
@@ -855,6 +859,19 @@
           <li>Named concepts: budget flip, premium hold</li>
           <li>Theme selector — materials, finishes, colors</li>
           <li>Room-level cost breakdown by sub-trade</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel 2.5: LEFT — t1a zone: Prep for Permit (Stage 2.5) -->
+    <div class="text-panel-left" id="panel-25">
+      <div class="panel-inner-left">
+        <span class="panel-tag">Stage 2.5 — Prep for Permit</span>
+        <h2 class="panel-h2">We have the design.<br><em>Now let's get permit-ready.</em></h2>
+        <p class="panel-p">We have excellent service.</p>
+        <ul class="panel-list-left">
+          <li>Fast</li>
+          <li>Speed</li>
         </ul>
       </div>
     </div>
@@ -1214,12 +1231,13 @@ const SEQS = [
 
 // Scroll-engine zones (0 → 1 within #scroll-engine)
 const Z = {
-  a1: [0,      0.1667],   // anim 1: Blueprint → Framing  (panel-0 LEFT visible here)
-  t1: [0.1667, 0.3333],   // panel-1 RIGHT: Permit
-  a2: [0.3333, 0.5000],   // anim 2: Framing → Mechanicals
-  t2: [0.5000, 0.6667],   // panel-2 RIGHT: Pre-Construction
-  a3: [0.6667, 0.8333],   // anim 3: Mechanicals → Final Product
-  t3: [0.8333, 1.0000],   // panel-3 RIGHT: Sale / Post-Sale
+  a1:  [0,      0.1667],   // anim 1: Blueprint → Framing  (panel-0 LEFT visible here)
+  t1a: [0.1667, 0.2500],   // panel-25: Stage 2.5 Prep for Permit
+  t1:  [0.2500, 0.3333],   // panel-1: Permit (Stage 3)
+  a2:  [0.3333, 0.5000],   // anim 2: Framing → Mechanicals
+  t2:  [0.5000, 0.6667],   // panel-2: Pre-Construction (Stage 4)
+  a3:  [0.6667, 0.8333],   // anim 3: Mechanicals → Final Product
+  t3:  [0.8333, 1.0000],   // panel-3: Sale / Post-Sale (Stages 6 & 7)
 };
 
 // ─── DOM ───────────────────────────────────────────────────────────────────────
@@ -1234,10 +1252,12 @@ const slFrom     = document.getElementById('sl-from');
 const slTo       = document.getElementById('sl-to');
 const stageLabel = document.getElementById('stage-label');
 const panel0     = document.getElementById('panel-0');
+const panel25    = document.getElementById('panel-25');
 const panel1     = document.getElementById('panel-1');
 const panel2     = document.getElementById('panel-2');
 const panel3     = document.getElementById('panel-3');
 const dot0       = document.getElementById('dot-0');
+const dot25      = document.getElementById('dot-25');
 const dot1       = document.getElementById('dot-1');
 const dot2       = document.getElementById('dot-2');
 const dot3       = document.getElementById('dot-3');
@@ -1370,17 +1390,19 @@ function onScroll() {
     slTo.innerHTML = '→ <em>The Final Product</em>';
   }
 
-  // Progress dots (now 4 for 4 stages)
-  dot0.classList.toggle('active', ep < Z.t1[0]);
-  dot1.classList.toggle('active', ep >= Z.t1[0] && ep < Z.a2[0]);
-  dot2.classList.toggle('active', ep >= Z.a2[0] && ep < Z.a3[0]);
-  dot3.classList.toggle('active', ep >= Z.a3[0]);
+  // Progress dots
+  dot0.classList.toggle('active',  ep < Z.t1a[0]);
+  dot25.classList.toggle('active', ep >= Z.t1a[0] && ep < Z.t1[0]);
+  dot1.classList.toggle('active',  ep >= Z.t1[0]  && ep < Z.a2[0]);
+  dot2.classList.toggle('active',  ep >= Z.a2[0]  && ep < Z.a3[0]);
+  dot3.classList.toggle('active',  ep >= Z.a3[0]);
 
   // Text panels
-  panel0.classList.toggle('visible', ep < Z.t1[0]);          // LEFT: blueprint entry
-  panel1.classList.toggle('visible', between(ep, Z.t1));      // RIGHT: Permit
-  panel2.classList.toggle('visible', between(ep, Z.t2));      // RIGHT: Pre-Construction
-  panel3.classList.toggle('visible', ep >= Z.t3[0]);          // RIGHT: Sale/Post-Sale
+  panel0.classList.toggle('visible',  ep < Z.t1a[0]);              // Stage 2: Design
+  panel25.classList.toggle('visible', between(ep, Z.t1a));          // Stage 2.5: Prep for Permit
+  panel1.classList.toggle('visible',  between(ep, Z.t1));           // Stage 3: Permit
+  panel2.classList.toggle('visible',  between(ep, Z.t2));           // Stage 4: Pre-Construction
+  panel3.classList.toggle('visible',  ep >= Z.t3[0]);               // Stages 6&7: Sale/Post-Sale
 }
 
 // ─── CTA HANDLERS ──────────────────────────────────────────────────────────────
