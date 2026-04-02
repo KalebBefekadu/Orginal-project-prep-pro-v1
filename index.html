@@ -391,7 +391,12 @@
     .section-header { text-align:center; }
     .section-h2 { font-family:var(--f-d); font-size:clamp(2.2rem,4.5vw,4.4rem); font-weight:300; line-height:1.1; max-width:660px; margin:0 auto 90px; text-align:center; color:var(--ink); }
     .section-h2 em { font-style:italic; color:var(--gold); }
-    .lc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .lc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .lc-card-cta { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; background:var(--surface); padding:44px 36px; }
+    .lc-card-cta-line { font-family:var(--f-d); font-size:1.15rem; font-weight:300; color:var(--ink); line-height:1.4; margin-bottom:28px; }
+    .lc-card-cta-line em { font-style:italic; color:var(--gold); }
+    .lc-card-cta-btn { font-family:var(--f-m); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--bg); background:var(--gold); border:none; padding:13px 24px; cursor:pointer; transition:opacity 0.2s; }
+    .lc-card-cta-btn:hover { opacity:0.85; }
     .lc-card { background:var(--surface); padding:44px 36px; position:relative; overflow:hidden; transition:background 0.3s; }
     .lc-card::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:transparent; transition:background 0.3s; }
     .lc-card:hover { background:rgba(184,146,31,0.03); }
@@ -533,7 +538,7 @@
     }
     @media (max-width:900px) {
       .who-grid { grid-template-columns:1fr; }
-      .lc-grid { grid-template-columns:1fr 1fr; }
+      .lc-grid { grid-template-columns:repeat(2,1fr); }
       .hub-grid-2 { grid-template-columns:1fr; }
       #lifecycle, #service-hub { padding:80px 24px; }
       .pb-top { grid-template-columns:1fr; gap:48px; }
@@ -970,10 +975,10 @@
       </div>
       <h3 class="card-title">Permit</h3>
       <span class="card-subtitle">Guided Navigation</span>
-      <p class="card-p">The permit stage converts confusing local regulations into plain language, deploys an AI with municipality-specific data, and connects you to permit experts who know your city. Full filing services are coming — the platform will handle it for you.</p>
+      <p class="card-p">Navigate city hall without the confusion — or hand it off entirely. An AI trained on your specific municipality converts local regulations into plain language and connects you directly to permit experts who know your city.</p>
       <ul class="card-features">
-        <li>Full permit process management</li>
         <li>AI assistant trained on local municipality rules</li>
+        <li>Local rules in plain language by jurisdiction</li>
         <li>Connect to local permit wizard experts</li>
         <li>Full filing service — coming soon</li>
       </ul>
@@ -1018,7 +1023,7 @@
       </div>
       <h3 class="card-title">Sale</h3>
       <span class="card-subtitle">Disposition</span>
-      <p class="card-p">The AI knows every detail of your property — generate MLS copy in seconds with luxury, family, or investor framing. Compile the Buyer Confidence Dossier, track escrow with holding cost analysis, and manage the agent handoff link.</p>
+      <p class="card-p">The AI knows every detail of your property. Generate MLS copy in seconds with luxury, family, or investor framing. Deliver a Buyer Confidence Dossier and agent handoff package that no other seller in the market can produce.</p>
       <ul class="card-features">
         <li>AI MLS description with custom tone options</li>
         <li>Buyer dossier: permits, warranties, construction proof</li>
@@ -1027,6 +1032,26 @@
       </ul>
     </div>
 
+    <div class="lc-card">
+      <span class="card-num">07</span>
+      <div class="card-svg-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3 class="card-title">Post-Sale</h3>
+      <span class="card-subtitle">Archive &amp; Learn</span>
+      <p class="card-p">When the project closes, a financial post-mortem compares every projected number to every actual — by stage, by trade, by line item. Cost variances feed back into your underwriting model automatically. Every deal makes the next one more profitable.</p>
+      <ul class="card-features">
+        <li>Automated investor financial report</li>
+        <li>Projected vs. actual by stage and trade</li>
+        <li>Cost variances update your underwriting model</li>
+        <li>Full project archive: permits, warranties, credentials</li>
+      </ul>
+    </div>
+
+    <div class="lc-card-cta">
+      <p class="lc-card-cta-line">Seven stages.<br>One system.<br><em>Ready to see it?</em></p>
+      <button class="lc-card-cta-btn" onclick="document.getElementById('final-cta').scrollIntoView({behavior:'smooth'})">Join the Waitlist</button>
+    </div>
 
   </div>
 </section>
