@@ -340,47 +340,76 @@
     .sl-to em { color:var(--gold); font-style:italic; }
 
     #dots {
-      position:absolute; right:40px; top:50%; transform:translateY(-50%);
+      position:absolute; right:32px; top:50%; transform:translateY(-50%);
       z-index:10; display:flex; flex-direction:column; align-items:center; gap:0;
     }
     .dot-wrap { display:flex; flex-direction:column; align-items:center; }
-    .dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.2); transition:background 0.4s, box-shadow 0.4s; }
-    .dot.active { background:var(--gold); box-shadow:0 0 8px rgba(184,146,31,0.7); }
-    .dot-line { width:1px; height:32px; background:rgba(255,255,255,0.1); }
+    .dot { width:4px; height:4px; border-radius:50%; background:transparent; border:1px solid rgba(201,168,76,0.4); transition:background 0.4s, width 0.3s, height 0.3s; }
+    .dot.active { width:6px; height:6px; background:#C9A84C; border-color:#C9A84C; }
+    .dot-line { width:1px; height:14px; background:rgba(201,168,76,0.2); }
 
     /* Right-side text panels */
     .text-panel {
       position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:flex-end;
-      padding-right:80px; pointer-events:none;
+      display:flex; align-items:flex-end; justify-content:flex-end;
+      padding-right:56px; padding-bottom:64px; pointer-events:none;
       opacity:0; transition:opacity 0.75s ease;
-      background:linear-gradient(to left, rgba(13,11,9,0.9) 0%, rgba(13,11,9,0.6) 42%, transparent 100%);
+      background:linear-gradient(to left, rgba(13,11,9,0.88) 0%, rgba(13,11,9,0.55) 44%, transparent 100%);
     }
     .text-panel.visible { opacity:1; }
-    .panel-inner { max-width:420px; text-align:right; }
+    .panel-inner { max-width:520px; text-align:right; }
 
-    /* Left-side text panel (blueprint entry) */
+    /* Left-side text panels */
     .text-panel-left {
       position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:flex-start;
-      padding-left:80px; pointer-events:none;
+      display:flex; align-items:flex-end; justify-content:flex-start;
+      padding-left:56px; padding-bottom:64px; pointer-events:none;
       opacity:0; transition:opacity 0.75s ease;
-      background:linear-gradient(to right, rgba(13,11,9,0.9) 0%, rgba(13,11,9,0.6) 42%, transparent 100%);
+      background:linear-gradient(to right, rgba(13,11,9,0.88) 0%, rgba(13,11,9,0.55) 44%, transparent 100%);
     }
     .text-panel-left.visible { opacity:1; }
-    .panel-inner-left { max-width:420px; text-align:left; }
-    .panel-list-left { list-style:none; display:flex; flex-direction:column; gap:9px; }
-    .panel-list-left li { font-size:0.76rem; color:rgba(250,250,248,0.6); display:flex; align-items:center; gap:12px; }
-    .panel-list-left li::after { content:''; width:16px; height:1px; background:var(--gold); flex-shrink:0; display:none; }
-    .panel-list-left li::before { content:''; width:16px; height:1px; background:var(--gold); flex-shrink:0; }
+    .panel-inner-left { max-width:520px; text-align:left; }
 
-    .panel-tag { font-size:0.58rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; display:block; }
-    .panel-h2 { font-family:var(--f-d); font-size:clamp(1.55rem,2.8vw,2.6rem); font-weight:300; line-height:1.18; margin-bottom:18px; color:rgba(250,250,248,0.95); }
+    /* Shared panel typography */
+    .panel-tag { font-size:0.58rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:block;
+      transform:translateY(30px); transition:transform 0.7s ease 0s; }
+    .panel-rule { width:36px; height:1px; background:rgba(201,168,76,0.3); margin-bottom:18px;
+      transform:translateY(30px); transition:transform 0.7s ease 0.05s; }
+    .panel-h2 { font-family:var(--f-d); font-size:clamp(1.55rem,2.8vw,2.6rem); font-weight:300; line-height:1.18; margin-bottom:18px; color:rgba(250,250,248,0.95);
+      transform:translateY(30px); transition:transform 0.7s ease 0.1s; }
     .panel-h2 em { font-style:italic; color:var(--gold); }
-    .panel-p { font-size:0.83rem; line-height:1.84; color:rgba(250,250,248,0.55); margin-bottom:22px; }
-    .panel-list { list-style:none; display:flex; flex-direction:column; gap:9px; align-items:flex-end; }
-    .panel-list li { font-size:0.76rem; color:rgba(250,250,248,0.6); display:flex; align-items:center; gap:12px; }
-    .panel-list li::before { content:''; width:16px; height:1px; background:var(--gold); flex-shrink:0; }
+    .panel-p { font-size:0.83rem; line-height:1.84; color:rgba(250,250,248,0.55); margin-bottom:20px;
+      transform:translateY(30px); transition:transform 0.7s ease 0.2s; }
+
+    /* Bullets — both left and right panels */
+    .panel-list-left,
+    .panel-list { list-style:none; display:flex; flex-direction:column; gap:0; }
+    .panel-list { align-items:flex-end; }
+    .panel-list-left li,
+    .panel-list li {
+      font-family:var(--f-m); font-size:0.75rem; font-weight:300; line-height:1.9;
+      color:rgba(255,255,255,0.75);
+      transform:translateY(30px); transition:transform 0.7s ease 0.3s;
+    }
+    .panel-list-left li:nth-child(2), .panel-list li:nth-child(2) { transition-delay:0.38s; }
+    .panel-list-left li:nth-child(3), .panel-list li:nth-child(3) { transition-delay:0.46s; }
+    .panel-list-left li::before { content:'— '; color:#C9A84C; font-weight:400; }
+    .panel-list li::before    { content:'— '; color:#C9A84C; font-weight:400; }
+
+    /* Animate in when visible */
+    .text-panel-left.visible .panel-tag,
+    .text-panel-left.visible .panel-rule,
+    .text-panel-left.visible .panel-h2,
+    .text-panel-left.visible .panel-p,
+    .text-panel-left.visible .panel-list-left li,
+    .text-panel.visible .panel-tag,
+    .text-panel.visible .panel-rule,
+    .text-panel.visible .panel-h2,
+    .text-panel.visible .panel-p,
+    .text-panel.visible .panel-list li { transform:translateY(0); }
+
+    /* Right panel rule alignment */
+    .panel-inner .panel-rule { margin-left:auto; }
 
     /* ── SECTION EYEBROW (shared) ── */
     .section-eyebrow { font-size:0.58rem; letter-spacing:0.36em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; display:block; }
@@ -545,8 +574,8 @@
       .frag-sticky { padding:0 24px; }
       #stage-label { left:24px; bottom:36px; }
       #dots { right:16px; }
-      .text-panel { padding-right:20px; }
-      .text-panel-left { padding-left:20px; }
+      .text-panel { padding-right:28px; padding-bottom:40px; }
+      .text-panel-left { padding-left:28px; padding-bottom:40px; }
       footer { flex-direction:column; gap:28px; text-align:center; }
       .hero-brand { left:24px; top:24px; }
       #who-is-this { padding:80px 24px 100px; }
@@ -848,76 +877,77 @@
       </div>
     </div>
 
-    <!-- Panel 0: LEFT side — visible at blueprint entry (a1 zone) -->
+    <!-- Panel 0: LEFT — a1 zone: Acquisition & Field Intelligence (Stage 1) -->
     <div class="text-panel-left" id="panel-0">
       <div class="panel-inner-left">
-        <span class="panel-tag">Stage 2 — Design & AI Prototyping</span>
-        <h2 class="panel-h2">The data is collected.<br><em>Now, visualize it.</em></h2>
-        <p class="panel-p">Field intelligence — BIM scans, room dimensions, photos — is live. The AI design engine uses all of it to generate precise 2D and 3D renderings of the finished property before a single contractor mobilizes.</p>
+        <span class="panel-tag">Stage 1 — Acquisition &amp; Field Intelligence</span>
+        <div class="panel-rule"></div>
+        <h2 class="panel-h2">Every number the property can tell you.<br><em>Captured before you commit.</em></h2>
+        <p class="panel-p">AI underwrites the deal in minutes — ARV, renovation cost, holding cost, margin — using live public data. Your field intelligence is collected once and carries through every stage that follows.</p>
         <ul class="panel-list-left">
-          <li>AI design hub with full property context</li>
-          <li>Named concepts: budget flip, premium hold</li>
-          <li>Theme selector — materials, finishes, colors</li>
+          <li>AI deal underwriting with live public data</li>
+          <li>BIM scans, 2D/3D walkthroughs, room-by-room breakdown</li>
+          <li>Everything captured here flows automatically into Design</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel 2.5: LEFT — t1a zone: Design & AI Prototyping (Stage 2) -->
+    <div class="text-panel-left" id="panel-25">
+      <div class="panel-inner-left">
+        <span class="panel-tag">Stage 2 — Design &amp; AI Prototyping</span>
+        <div class="panel-rule"></div>
+        <h2 class="panel-h2">The data is collected.<br><em>Now, see what it becomes.</em></h2>
+        <p class="panel-p">Your exact room dimensions and photos feed the AI design engine — generating precise 2D and 3D renderings of the finished property before a single contractor is hired.</p>
+        <ul class="panel-list-left">
+          <li>Multiple named concepts: budget flip, premium hold, mid-range</li>
+          <li>Theme selector: materials, finishes, countertops, colors</li>
           <li>Room-level cost breakdown by sub-trade</li>
         </ul>
       </div>
     </div>
 
-    <!-- Panel 2.5: LEFT — t1a zone: Prep for Permit (Stage 2.5) -->
-    <div class="text-panel-left" id="panel-25">
-      <div class="panel-inner-left">
-        <span class="panel-tag">Stage 2.5 — Prep for Permit</span>
-        <h2 class="panel-h2">We have the design.<br><em>Now let's get permit-ready.</em></h2>
-        <p class="panel-p">We have excellent service.</p>
-        <ul class="panel-list-left">
-          <li>Fast</li>
-          <li>Speed</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Panel 1: LEFT — t1 zone: Permit (Stage 3) -->
-    <div class="text-panel-left" id="panel-1">
-      <div class="panel-inner-left">
+    <!-- Panel 1: RIGHT — t1 zone: Permit (Stage 3) -->
+    <div class="text-panel" id="panel-1">
+      <div class="panel-inner">
         <span class="panel-tag">Stage 3 — Permit</span>
-        <h2 class="panel-h2">Navigate permits with<br><em>AI guidance</em> and local experts.</h2>
-        <p class="panel-p">Permits are where projects stall. The platform converts confusing local regulations into plain language, deploys an AI trained on your specific municipality, and connects you directly to local permit experts so nothing is left to chance.</p>
-        <ul class="panel-list-left">
-          <li>Full permit process management dashboard</li>
-          <li>Local rules in plain, easy-to-read format</li>
-          <li>AI assistant with municipality-specific data</li>
-          <li>Connect to a local permit wizard expert</li>
-          <li>Full filing service — coming soon</li>
+        <div class="panel-rule"></div>
+        <h2 class="panel-h2">Permits are where projects stall.<br><em>Not yours.</em></h2>
+        <p class="panel-p">An AI trained on your specific municipality converts local regulations into plain language and connects you directly to permit experts who know your city.</p>
+        <ul class="panel-list">
+          <li>AI assistant with municipality-specific data — not generic advice</li>
+          <li>Local rules translated into plain language by jurisdiction</li>
+          <li>Direct connection to local permit wizard experts</li>
         </ul>
       </div>
     </div>
 
-    <!-- Panel 2: LEFT — t2 zone: Pre-Construction (Stage 4) -->
-    <div class="text-panel-left" id="panel-2">
-      <div class="panel-inner-left">
-        <span class="panel-tag">Stage 4 — Pre-Construction</span>
+    <!-- Panel 2: RIGHT — t2 zone: Pre-Construction & Contracting (Stage 4) -->
+    <div class="text-panel" id="panel-2">
+      <div class="panel-inner">
+        <span class="panel-tag">Stage 4 — Pre-Construction &amp; Contracting</span>
+        <div class="panel-rule"></div>
         <h2 class="panel-h2">Bid smart.<br><em>Contract clean.</em></h2>
-        <p class="panel-p">Send the exact scope to any subcontractor via magic link — no account required. Choose from five levels of due diligence. Compare bids, award the contract, and send for e-signature. Lender SOW, schedule, and compliance tracking all included.</p>
-        <ul class="panel-list-left">
-          <li>Magic link bidding — no sub login needed</li>
-          <li>5-tier due diligence: ID to full financial check</li>
-          <li>Auto-generated contract + e-signature</li>
-          <li>Lender SOW, Gantt schedule, Lock &amp; NTP</li>
+        <p class="panel-p">Send a detailed Scope of Work to any subcontractor's phone via secure link — no account required. The winning bid auto-generates the contract, pre-filled and ready to sign.</p>
+        <ul class="panel-list">
+          <li>Magic link bidding — subs submit without an account</li>
+          <li>5-tier due diligence: ID check to full financial verification</li>
+          <li>Auto-generated contract + e-signature, pre-filled from winning bid</li>
         </ul>
       </div>
     </div>
 
-    <!-- Panel 3: LEFT — t3 zone: Sale & Post-Sale -->
-    <div class="text-panel-left" id="panel-3">
-      <div class="panel-inner-left">
+    <!-- Panel 3: RIGHT — t3 zone: Sale & Post-Sale (Stages 6 & 7) -->
+    <div class="text-panel" id="panel-3">
+      <div class="panel-inner">
         <span class="panel-tag">Stages 6 &amp; 7 — Sale &amp; Post-Sale</span>
-        <h2 class="panel-h2">Close with<br><em>institutional records.</em></h2>
-        <p class="panel-p">The AI knows this property inside and out — generate a compelling MLS description in seconds. Compile the Buyer Dossier, track escrow, collect lien waivers, and archive the full project so the system learns for your next deal.</p>
-        <ul class="panel-list-left">
-          <li>AI MLS description generator</li>
-          <li>Buyer confidence dossier + agent handoff</li>
-          <li>Escrow tracker with holding cost analysis</li>
-          <li>Financial post-mortem + lessons learned</li>
+        <div class="panel-rule"></div>
+        <h2 class="panel-h2">The deal is done.<br><em>Now it makes the next one better.</em></h2>
+        <p class="panel-p">The AI knows every detail of this property. Deliver documentation no other seller in the market can produce and generate a professional MLS listing in seconds. When the project closes, a financial report is generated automatically, formatted for investors, partners, or internal review. The platform gets more accurate with every deal you close.</p>
+        <ul class="panel-list">
+          <li>Buyer Confidence file (permits, warranties, materials, contractor credentials)</li>
+          <li>Automated investor financial report</li>
+          <li>Every variance feeds your next deal's underwriting automatically</li>
         </ul>
       </div>
     </div>
