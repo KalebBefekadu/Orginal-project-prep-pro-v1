@@ -92,13 +92,13 @@
     .hero-brand span { color:var(--gold); }
     .hero-eyebrow {
       display:inline-flex; align-items:center; gap:10px;
-      font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase;
+      font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase;
       color:var(--gold); margin-bottom:30px; padding:7px 20px;
       border:1px solid rgba(184,146,31,0.28); background:rgba(184,146,31,0.07);
       position:relative;
     }
     .hero-eyebrow::before {
-      content:''; width:5px; height:5px; background:var(--gold);
+      content:''; width:6px; height:6px; background:#16a34a;
       border-radius:50%; animation:blink 2s ease-in-out infinite;
     }
     @keyframes blink {
@@ -144,9 +144,9 @@
       width:8px; height:8px; background:#16a34a; border-radius:50%;
       animation:blink 2s ease-in-out infinite; flex-shrink:0;
     }
-    .hero-cta-form { display:flex; align-items:stretch; width:100%; max-width:500px; }
+    .hero-cta-form { display:flex; align-items:stretch; width:100%; max-width:580px; }
     .hero-cta-input {
-      flex:1; padding:0 22px; height:56px;
+      flex:1; min-width:0; padding:0 20px; height:56px;
       background:var(--surface); border:1.5px solid var(--bmd); border-right:none;
       color:var(--ink); font-family:var(--f-b); font-size:0.9rem; outline:none;
       border-radius:8px 0 0 8px; transition:border-color 0.2s;
@@ -588,7 +588,7 @@
 
     <div class="hero-brand">Project <span>Prep</span> Pro</div>
 
-    <div class="hero-eyebrow">Now in Private Beta</div>
+    <div class="hero-eyebrow">Private Beta · Metro Atlanta Launch</div>
 
     <h1 class="hero-h1">
       Every Stage.<br>Every Decision.<br><em>One AI-Powered System.</em>
